@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { PIPELINE_STAGES } from '../constants';
 
-const SalesPipeline: React.FC = () => {
+const SalesPipeline = () => {
   const totalValue = PIPELINE_STAGES.reduce((acc, stage) => acc + stage.value, 0);
 
   return (
@@ -26,10 +25,8 @@ const SalesPipeline: React.FC = () => {
             const conversionRate = nextStage ? Math.round((nextStage.count / stage.count) * 100) : null;
             
             // Calculate taper for the "funnel" effect using clip-path
-            // We want each stage to get slightly shorter/narrower top to bottom, 
-            // but in horizontal mode, we can simulate this with vertical tapering.
-            const taperTop = 10 + (idx * 5); // Start at 10% from top, increase by 5% each stage
-            const taperBottom = 90 - (idx * 5); // Start at 90% from bottom, decrease by 5% each stage
+            const taperTop = 10 + (idx * 5); 
+            const taperBottom = 90 - (idx * 5); 
             
             return (
               <div key={stage.id} className="relative flex-1 flex group min-w-[120px]">
