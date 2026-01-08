@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import MetricCards from './components/MetricCards';
 import LeadTable from './components/LeadTable';
@@ -6,7 +5,7 @@ import SalesPipeline from './components/SalesPipeline';
 import TaskBoard from './components/TaskBoard';
 import AIInsights from './components/AIInsights';
 
-const BrandLogo: React.FC<{ collapsed?: boolean; className?: string }> = ({ collapsed, className = "" }) => (
+const BrandLogo = ({ collapsed, className = "" }) => (
   <div className={`flex items-center transition-all duration-300 ${collapsed ? 'justify-center' : 'gap-3'} ${className}`}>
     <div className="w-9 h-9 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-200 shrink-0 transform hover:scale-105 transition-transform duration-200">
       <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -21,7 +20,7 @@ const BrandLogo: React.FC<{ collapsed?: boolean; className?: string }> = ({ coll
   </div>
 );
 
-const SidebarLink: React.FC<{ icon: React.ReactNode; label: string; active?: boolean; collapsed?: boolean }> = ({ icon, label, active, collapsed }) => (
+const SidebarLink = ({ icon, label, active, collapsed }) => (
   <a 
     href="#" 
     title={collapsed ? label : ""}
@@ -38,7 +37,7 @@ const SidebarLink: React.FC<{ icon: React.ReactNode; label: string; active?: boo
   </a>
 );
 
-const App: React.FC = () => {
+const App = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -96,7 +95,6 @@ const App: React.FC = () => {
             </nav>
           </div>
 
-          {/* Sidebar Toggle Button (Inside Sidebar at bottom) */}
           <div className="mt-auto p-4 border-t border-slate-100">
             <button 
               onClick={toggleSidebar}
@@ -108,7 +106,6 @@ const App: React.FC = () => {
               {!isCollapsed && <span className="text-xs font-bold uppercase tracking-widest">Minimize</span>}
             </button>
 
-            {/* Profile Section */}
             <div className={`mt-4 p-2 bg-slate-50 rounded-2xl border border-slate-100 transition-all duration-300 ${isCollapsed ? 'px-1' : 'px-3'}`}>
               <div className={`flex items-center transition-all duration-300 ${isCollapsed ? 'justify-center' : 'gap-3'}`}>
                 <img className="w-9 h-9 rounded-full border-2 border-white shadow-sm shrink-0" src="https://picsum.photos/40/40" alt="profile" />
@@ -124,9 +121,7 @@ const App: React.FC = () => {
         </div>
       </aside>
 
-      {/* Main Content */}
       <main className={`flex-1 transition-all duration-300 ${mobileOpen ? 'ml-0' : (isCollapsed ? 'lg:ml-20' : 'lg:ml-64')}`}>
-        {/* Top Header */}
         <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button 
@@ -159,7 +154,6 @@ const App: React.FC = () => {
           </div>
         </header>
 
-        {/* Dashboard Content */}
         <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto space-y-6">
           <AIInsights />
           <MetricCards />
@@ -172,7 +166,6 @@ const App: React.FC = () => {
             <div className="space-y-6 lg:space-y-8">
               <TaskBoard />
               
-              {/* Secondary Stat Widget */}
               <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5 lg:p-6">
                 <h3 className="text-sm font-bold text-slate-800 mb-5">Performance by Segment</h3>
                 <div className="space-y-5">
@@ -197,7 +190,6 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Footer */}
         <footer className="px-8 py-10 text-center text-slate-400 text-xs border-t border-slate-200 mt-12 bg-white">
           <div className="flex flex-col items-center gap-2">
             <div className="flex items-center gap-1 opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
