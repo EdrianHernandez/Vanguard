@@ -1,10 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { GoogleGenAI } from '@google/genai';
 import { MOCK_LEADS, PIPELINE_STAGES } from '../constants';
 
-const AIInsights: React.FC = () => {
-  const [insight, setInsight] = useState<string>('Vanguard AI is analyzing your current sales posture...');
+const AIInsights = () => {
+  const [insight, setInsight] = useState('Vanguard AI is analyzing your current sales posture...');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
