@@ -1,12 +1,11 @@
-
 import React, { useState } from 'react';
 import { MOCK_LEADS } from '../constants';
 import { LeadStatus } from '../types';
 
-const LeadTable: React.FC = () => {
+const LeadTable = () => {
   const [leads] = useState(MOCK_LEADS);
 
-  const getStatusColor = (status: LeadStatus) => {
+  const getStatusColor = (status) => {
     switch (status) {
       case LeadStatus.NEW: return 'bg-blue-50 text-blue-700 border-blue-100';
       case LeadStatus.CONTACTED: return 'bg-amber-50 text-amber-700 border-amber-100';
