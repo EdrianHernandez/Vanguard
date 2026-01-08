@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { METRICS } from '../constants';
 
-const MetricCard: React.FC<{ metric: typeof METRICS[0] }> = ({ metric }) => {
+const MetricCard = ({ metric }) => {
   return (
     <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:shadow-md transition-all duration-200 group">
       <div className="flex items-center justify-between mb-3">
@@ -23,7 +22,7 @@ const MetricCard: React.FC<{ metric: typeof METRICS[0] }> = ({ metric }) => {
   );
 };
 
-const MetricCards: React.FC = () => {
+const MetricCards = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
       {METRICS.map((metric, idx) => (
