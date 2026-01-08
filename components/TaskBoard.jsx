@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { MOCK_TASKS } from '../constants';
 import { TaskStatus } from '../types';
 
-const TaskCard: React.FC<{ task: typeof MOCK_TASKS[0] }> = ({ task }) => {
+const TaskCard = ({ task }) => {
   const priorityColors = {
     'High': 'text-rose-600 bg-rose-50 border-rose-100',
     'Medium': 'text-amber-600 bg-amber-50 border-amber-100',
@@ -33,7 +32,7 @@ const TaskCard: React.FC<{ task: typeof MOCK_TASKS[0] }> = ({ task }) => {
   );
 };
 
-const TaskBoard: React.FC = () => {
+const TaskBoard = () => {
   const columns = [
     { title: 'To-Do', status: TaskStatus.TODO, count: MOCK_TASKS.filter(t => t.status === TaskStatus.TODO).length },
     { title: 'In Progress', status: TaskStatus.IN_PROGRESS, count: MOCK_TASKS.filter(t => t.status === TaskStatus.IN_PROGRESS).length },
